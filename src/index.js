@@ -1,4 +1,5 @@
 // @flow
+import stylis from 'stylis'
 
 /* Import singletons */
 import generateAlphabeticName from './utils/generateAlphabeticName'
