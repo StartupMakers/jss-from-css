@@ -27,21 +27,22 @@ const styled = _styled(
 )
 
 /* First debug steps */
-type CSSOptions = {
-  parse: (CSS: string) => Object,
-}
-type CompiledCSSCallback = (context: Object?, options: CSSOptions?) => Object
-const fromCSS: CompiledCSSCallback = (CSS: string) {
-  return (context, options) => ({
-    return (options && options.parse) ? options.parse(CSS) : stylis(
-      '',
-      CSS,
-      false,
-      false
-    );
-  })
+type CompiledCSSCallback = (context: Object?) => Object
+const fromCSS: CompiledCSSCallback = (CSSCode: string) {
+  return (context) => stylis(
+    '',
+    CSSCode,
+    false,
+    false
+  );
 }
   
+const createFromCSS: CompiledCSSCallback = (options) => (CSSCode) => {
+  if (options.parse) {
+    return options.parse(CSSCode)
+  }
+  return fromCSS(CSSCode)
+}
 
 /* Export everything */
 export default fromCSS
