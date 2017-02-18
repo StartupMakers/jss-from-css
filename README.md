@@ -2,6 +2,12 @@
 
 Use the best bits of ES6 and CSS to work with your [JSS styles](https://github.com/cssinjs/jss).
 
+## Installation
+
+```bash
+npm install jss-from-css
+```
+
 ## Example
 
 ```javascript
