@@ -1,0 +1,111 @@
+{
+  "name": "jss-from-css",
+  "version": "0.1.0",
+  "description": "Empower your JSS styles by using the best bits of ES6 and CSS 💪",
+  "main": "lib/index.js",
+  "jsnext:main": "dist/jss-from-css.es.js",
+  "module": "dist/jss-from-css.es.js",
+  "scripts": {
+    "build": "npm run build:lib && npm run build:dist && npm run build:flow",
+    "prebuild:lib": "rm -rf lib/*",
+    "build:lib": "babel --out-dir lib src",
+    "build:flow": "flow-copy-source -v -i '{**/test/*.js,**/*.test.js}' src lib",
+    "prebuild:umd": "rm -rf dist/*",
+    "prebuild:dist": "rm -rf dist/*",
+    "build:dist": "rollup -c && rollup -c --environment PRODUCTION",
+    "build:watch": "npm run build:lib -- --watch",
+    "test": "mocha \"./src/**/*.test.js\" --require babel-core/register --timeout 5000",
+    "test:watch": "npm run test -- --watch",
+    "flow": "flow check",
+    "lint": "eslint src",
+    "prepublish": "npm run build",
+    "lint-staged": "lint-staged",
+    "dev": "node example/devServer.js",
+    "example:ssr": "babel-node example/ssr"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/axept/jss-from-css.git"
+  },
+  "keywords": [
+    "react",
+    "css",
+    "css-in-js"
+  ],
+  "author": "Originally by Glen Maddern",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/axept/jss-from-css/issues"
+  },
+  "homepage": "https://github.com/axept/jss-from-css",
+  "dependencies": {
+    "buffer": "^5.0.3",
+    "css-to-react-native": "^1.0.6",
+    "fbjs": "^0.8.9",
+    "glamor": "^2.20.22",
+    "inline-style-prefixer": "^2.0.5",
+    "is-function": "^1.0.1",
+    "is-plain-object": "^2.0.1",
+    "stylis": "^1.1.3",
+    "supports-color": "^3.2.3"
+  },
+  "devDependencies": {
+    "babel-cli": "^6.22.2",
+    "babel-core": "^6.17.0",
+    "babel-eslint": "^7.1.1",
+    "babel-loader": "^6.2.10",
+    "babel-plugin-add-module-exports": "^0.2.1",
+    "babel-plugin-external-helpers": "^6.22.0",
+    "babel-plugin-flow-react-proptypes": "^0.18.2",
+    "babel-plugin-transform-class-properties": "^6.22.0",
+    "babel-plugin-transform-flow-strip-types": "^6.22.0",
+    "babel-plugin-transform-object-rest-spread": "^6.22.0",
+    "babel-preset-latest": "^6.22.0",
+    "babel-preset-react": "^6.22.0",
+    "chokidar": "^1.6.0",
+    "danger": "^0.7.5",
+    "enzyme": "^2.7.1",
+    "eslint": "^3.15.0",
+    "eslint-config-airbnb": "^13.0.0",
+    "eslint-plugin-flowtype": "^2.30.0",
+    "eslint-plugin-flowtype-errors": "^2.0.1",
+    "eslint-plugin-import": "^2.2.0",
+    "eslint-plugin-jsx-a11y": "^2.0.2",
+    "eslint-plugin-react": "^6.8.0",
+    "expect": "^1.20.2",
+    "express": "^4.14.1",
+    "flow-bin": "^0.37.1",
+    "flow-copy-source": "^1.1.0",
+    "jsdom": "^9.10.0",
+    "lint-staged": "^3.3.0",
+    "mocha": "^3.2.0",
+    "mocha-jsdom": "^1.1.0",
+    "node-watch": "^0.4.1",
+    "pre-commit": "^1.2.2",
+    "react": "^15.4.1",
+    "react-addons-test-utils": "^15.4.1",
+    "react-dom": "^15.4.1",
+    "react-native": "^0.39.2",
+    "rollup": "^0.37.0",
+    "rollup-plugin-babel": "^2.7.1",
+    "rollup-plugin-commonjs": "^6.0.0",
+    "rollup-plugin-flow": "^1.1.1",
+    "rollup-plugin-inject": "^2.0.0",
+    "rollup-plugin-json": "^2.1.0",
+    "rollup-plugin-node-resolve": "^2.0.0",
+    "rollup-plugin-replace": "^1.1.1",
+    "rollup-plugin-uglify": "^1.0.1",
+    "rollup-plugin-visualizer": "^0.1.5"
+  },
+  "peerDependencies": {
+    "react": "^0.14.0 || ^15.0.0-0"
+  },
+  "lint-staged": {
+    "*.js": [
+      "eslint --fix",
+      "git add"
+    ]
+  },
+  "pre-commit": "lint-staged"
+}
+
