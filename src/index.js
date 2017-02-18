@@ -29,7 +29,8 @@ const styled = _styled(
 
 /* First debug steps */
 type CompiledCSSCallback = (context: Object?) => Object
-const fromCSS: CompiledCSSCallback = (CSSCode: string) {
+type CSSCallback: Object = (CSSCode: string)
+const fromCSS: CompiledCSSCallback = (CSSCode: string) => {
   return (context) => stylis(
     '',
     CSSCode,
@@ -38,7 +39,7 @@ const fromCSS: CompiledCSSCallback = (CSSCode: string) {
   );
 }
   
-const createFromCSS: CompiledCSSCallback = (options) => (CSSCode) => {
+const createCSSAdapter: CSSCallback = (options) => (CSSCode) => {
   if (options.parse) {
     return options.parse(CSSCode)
   }
@@ -46,5 +47,5 @@ const createFromCSS: CompiledCSSCallback = (options) => (CSSCode) => {
 }
 
 /* Export everything */
-export default fromCSS
-export { css, keyframes, injectGlobal, ThemeProvider, withTheme, styleSheet }
+export default fromCSS 
+export { createCSSAdapter, css, keyframes, injectGlobal, ThemeProvider, withTheme, styleSheet }
