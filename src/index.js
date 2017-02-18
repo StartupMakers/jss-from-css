@@ -20,8 +20,29 @@ import withTheme from './hoc/withTheme'
 
 /* Instantiate singletons */
 const keyframes = _keyframes(generateAlphabeticName)
-const styled = _styled(_styledComponent(_ComponentStyle(generateAlphabeticName)))
+const styled = _styled(
+  _styledComponent(
+    _ComponentStyle(generateAlphabeticName)
+  )
+)
+
+/* First debug steps */
+type CSSOptions = {
+  parse: (CSS: string) => Object,
+}
+type CompiledCSSCallback = (context: Object?, options: CSSOptions?) => Object
+const fromCSS: CompiledCSSCallback = (CSS: string) {
+  return (context, options) => ({
+    return (options && options.parse) ? options.parse(CSS) : stylis(
+      '',
+      CSS,
+      false,
+      false
+    );
+  })
+}
+  
 
 /* Export everything */
-export default styled
+export default fromCSS
 export { css, keyframes, injectGlobal, ThemeProvider, withTheme, styleSheet }
