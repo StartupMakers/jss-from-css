@@ -5,7 +5,7 @@ Use the best bits of ES6 and CSS to work with your [JSS styles](https://github.c
 ## Installation
 
 ```bash
-npm install jss-from-css
+npm install jss-from-css --save
 ```
 
 ## Example
