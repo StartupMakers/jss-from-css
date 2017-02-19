@@ -6,7 +6,7 @@
 
 Use the best bits of ES6 and CSS to work with your [JSS styles](https://github.com/cssinjs/jss).
 
-Fast and predictable CSS to JSS "on-the-fly" adapter which supports any custom CSS pre-processor including PostCSS, LESS, SCSS, Stylus and so on.
+Fast, predictable and fully customizable CSS to JSS "on-the-fly" adapter which support any custom CSS pre-processors including PostCSS, LESS, SCSS, Stylus and so on.
 
 This package could help you to migrate to JSS in up to 5x faster.
 
