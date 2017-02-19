@@ -63,14 +63,14 @@ document.body.innerHTML = `
 
 ## Adapters
 
-At the moment [stylis.js](https://github.com/thysultan/stylis.js) is using inside to parse your CSS code. But you can create CSS adapter to override `parse` function. PostCSS, LESS, SCSS. Feel free, just do it:
+At the moment [stylis.js](https://github.com/thysultan/stylis.js) and [https://github.com/aramk/CSSJSON](CSSJSON) are using to parse your CSS code. But you can create any custom CSS adapter to override `prepare` and/or `parse` functions. PostCSS, LESS, SCSS. Feel free, just do it:
 
 ```javascript
 import { createCSSAdapter, keyframes } from 'jss-from-css'
 import myPostCSSParserSync from './my-css-parser'
 
 const fromPostCSS = createCSSAdapter({
-  parse: (CSS) => myPostCSSParserSync(CSS),
+  prepare: (CSS) => myPostCSSParserSync(CSS),
 })
 
 const rotate360 = keyframes`
