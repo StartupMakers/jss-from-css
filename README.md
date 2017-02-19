@@ -61,6 +61,50 @@ document.body.innerHTML = `
 `
 ```
 
+## Adapters
+
+At the moment [stylis.js](https://github.com/thysultan/stylis.js) is using inside to parse your CSS code. But you can create CSS adapter to override `parse` function. PostCSS, LESS, SCSS. Feel free, just do it:
+
+```javascript
+import { createCSSAdapter, keyframes } from 'jss-from-css'
+import myPostCSSParserSync from './my-css-parser'
+
+const fromPostCSS = createCSSAdapter({
+  parse: (CSS) => myPostCSSParserSync(CSS),
+})
+
+const rotate360 = keyframes`
+  from {
+    transform: rotate(0deg);
+  }
+
+  to {
+    transform: rotate(360deg);
+  }
+`
+
+const styles = fromPostCSS`
+  button {
+    color: ${context => context.defaultColor || 'palevioletred'};
+    display: block;
+    margin: 0.5em 0;
+    font-family: Helvetica, Arial, sans-serif;
+
+    &:hover {
+      text-decoration: underline;
+      animation: ${rotate360} 2s linear infinite;
+    }
+  }
+  
+  ctaButton {
+    @include button;
+    
+    &:hover {
+      background: ${color('blue').darken(0.3).hex()}
+    }
+  }
+`
+
 ## Additional
 
 Originally based on [styled-component 2.0.0-4](https://github.com/styled-components/styled-components/commit/22531e2431229d1f678b7ff1d575745800b888ed)
