@@ -63,7 +63,12 @@ document.body.innerHTML = `
 
 ## Adapters
 
-At the moment [stylis.js](https://github.com/thysultan/stylis.js) and [https://github.com/aramk/CSSJSON](CSSJSON) are using to parse your CSS code. But you can create any custom CSS adapter to override `prepare` and/or `parse` functions. PostCSS, LESS, SCSS. Feel free, just do it:
+At the moment [stylis.js](https://github.com/thysultan/stylis.js) and [CSSJSON](https://github.com/aramk/CSSJSON) are using to prepare and parse your CSS code. But you can create any custom CSS adapter to override `prepare` and/or `parse` functions.
+
++ `prepare(CSS: string): string` is using for preparing pure CSS from you PostCSS, LESS or SCSS code.
++ `parse(CSS: string): object` is using for converting pure CSS to JSS.
+
+Feel free to play with it:
 
 ```javascript
 import { createCSSAdapter, keyframes } from 'jss-from-css'
