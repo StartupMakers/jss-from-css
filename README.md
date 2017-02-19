@@ -6,7 +6,7 @@
 
 Use the best bits of ES6 and CSS to work with your [JSS styles](https://github.com/cssinjs/jss).
 
-Fast and predictable CSS to JSS "on-the-fly" converter which supports any custom CSS pre-processor including PostCSS, LESS, SCSS and SASS.
+Fast and predictable CSS to JSS "on-the-fly" converter which supports any custom CSS pre-processor including PostCSS, LESS, SCSS, Stylus and so on.
 
 This package could help you to migrate to JSS in up to 5x faster.
 
@@ -73,17 +73,22 @@ document.body.innerHTML = `
 
 At the moment [stylis.js](https://github.com/thysultan/stylis.js) and [CSSJSON](https://github.com/aramk/CSSJSON) are using to prepare and parse your CSS code. But you can create any custom CSS adapter to override `prepare` and/or `parse` functions.
 
-+ `prepare(CSS: string): string` is using for preparing pure CSS from you PostCSS, LESS or SCSS code.
++ `prepare(CSS: string): string` is using for preparing pure CSS from you PostCSS, LESS, SCSS or Stylus code.
 + `parse(CSS: string): object` is using for converting pure CSS to JSS.
 
 Feel free to play with it:
 
 ```javascript
 import { createCSSAdapter, keyframes } from 'jss-from-css'
-import myPostCSSParserSync from './my-css-parser'
+import myPostCSSParser from './my-css-parser'
+import myStylusParser from './my-stylus-parser'
 
 const fromPostCSS = createCSSAdapter({
   prepare: (CSS) => myPostCSSParserSync(CSS),
+})
+
+const fromStylus = createCSSAdapter({
+  prepare: (CSS) => myStylusParser(CSS),
 })
 
 const rotate360 = keyframes`
@@ -96,7 +101,7 @@ const rotate360 = keyframes`
   }
 `
 
-const styles = fromPostCSS`
+const styles1 = fromPostCSS`
   button {
     color: ${context => context.defaultColor || 'palevioletred'};
     display: block;
@@ -118,6 +123,13 @@ const styles = fromPostCSS`
   }
 `
 
+const styles2 = fromStylus`
+  button 
+    color ${context => context.defaultColor || 'palevioletred'};
+    display block;
+    margin 0.5em 0;
+    font-family Helvetica, Arial, sans-serif;
+`
 ```
 
 ## Additional
