@@ -118,6 +118,8 @@ const styles = fromPostCSS`
   }
 `
 
+```
+
 ## Additional
 
 Originally based on [styled-component 2.0.0-4](https://github.com/styled-components/styled-components/commit/22531e2431229d1f678b7ff1d575745800b888ed)
