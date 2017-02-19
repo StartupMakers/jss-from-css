@@ -1,6 +1,6 @@
 # jss-from-css
 
-> Less magic => Less bugs => More profit! 🚀
+> Less magic 👉 Less bugs 👉 More profit! 🚀
 
 Use the best bits of ES6 and CSS to work with your [JSS styles](https://github.com/cssinjs/jss).
 
