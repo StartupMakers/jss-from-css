@@ -1,6 +1,12 @@
 # jss-from-css
 
+> Less magic => Less bugs => More profit! 🚀
+
 Use the best bits of ES6 and CSS to work with your [JSS styles](https://github.com/cssinjs/jss).
+
+Fast and predictable CSS to JSS converter which supports any customer CSS preprocessor to work with your PostCSS, LESS, SCSS and SASS styles.
+
+This package could help you to migrate to JSS in up to 5x faster.
 
 ## Installation
 
