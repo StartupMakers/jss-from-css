@@ -1,4 +1,7 @@
 import css from 'css';
+import postcss from 'postcss';
+import postcssSimpleVars from 'postcss-simple-vars';
+import postcssNested from 'postcss-nested';
 
 /**
  * CSS TO JSS parser constructor
@@ -29,10 +32,11 @@ export function createCSSParser({ parser = defaultCSSParser, context = {} }) {
 
 /**
  * Default CSS parser, uses 'css' package for parsing
- * @param {String} styles CSS string
+ * @param {String} source CSS string
  * @returns {Object} result of transforming to JSS
  * */
-function defaultCSSParser(styles) {
+function defaultCSSParser(source) {
+  const styles = postcss([postcssSimpleVars, postcssNested]).process(source).css;
   const { stylesheet } = css.parse(styles);
   if (stylesheet.parsingErrors.length > 0) {
     throw new Error(stylesheet.parsingErrors);
@@ -100,7 +104,6 @@ function toJssRules(cssRules) {
       }
     }
   });
-
   return jssRules;
 }
 

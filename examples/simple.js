@@ -6,24 +6,20 @@ const parser = createCSSParser({
   }
 });
 
-const button = `
-  color: red;
-`;
-
 const styles = parser`
-  button {
-    background: ${context => context.color};
-    width: 200px;
-    border-radius: 10px;
-    ${button}
-  }
-  from {
-    transform: rotate(0deg);
-  }
+  $color: red;
+  
+  .images-search-item {
 
-  to {
-    transform: rotate(360deg);
+  & .image-thumb {
+    height: 250px;
+    display: block;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: 100% auto;
+    background-color: $color;
   }
+}
 `;
 
-console.log(styles);
+console.log('styles', styles);
