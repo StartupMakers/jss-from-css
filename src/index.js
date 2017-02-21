@@ -1,5 +1,11 @@
 import css from 'css';
 
+/**
+ * CSS TO JSS parser constructor
+ * @param {Function} parser function as argument takes CSS string
+ * @param {Object} context passed throw to literals expressions
+ * @returns {Object} result of parser execution
+ * */
 export function createCSSParser({ parser = defaultCSSParser, context = {} }) {
   return (chunks, ...variables) => {
     let styles;
@@ -21,6 +27,11 @@ export function createCSSParser({ parser = defaultCSSParser, context = {} }) {
   }
 }
 
+/**
+ * Default CSS parser, uses 'css' package for parsing
+ * @param {String} styles CSS string
+ * @returns {Object} result of transforming to JSS
+ * */
 function defaultCSSParser(styles) {
   const { stylesheet } = css.parse(styles);
   if (stylesheet.parsingErrors.length > 0) {
@@ -30,6 +41,12 @@ function defaultCSSParser(styles) {
   }
 }
 
+
+/**
+ * CSS rules to JSS object transform function
+ * @param {Object} cssRules object with rules
+ * @returns {Object} JSS rules object
+ * */
 function toJssRules(cssRules) {
   var jssRules = {};
 
