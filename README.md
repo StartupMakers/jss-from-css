@@ -1,12 +1,14 @@
-# jss-from-css
+# jss-from-postcss
 
 > No black boxes anymore.
 
 > Less magic 👉 Less bugs 👉 More profit! 🚀
 
-Use the best bits of ES6 and CSS to work with your [JSS styles](https://github.com/cssinjs/jss).
+Use the best bits of PostCSS to work with your [JSS styles](https://github.com/cssinjs/jss).
 
-Fast, predictable and fully customizable CSS to JSS "on-the-fly" adapter which support any custom CSS pre-processors including PostCSS, LESS, SCSS, Stylus and so on.
+Fast, predictable and fully customizable PostCSS to JSS "on-the-fly" adapter.
+
+Supports Serer-side Rendering (SSR) and run-time mode.
 
 This package could help you to migrate to JSS in up to 5x faster.
 
