@@ -1,7 +1,7 @@
 {
-  "name": "jss-from-css",
-  "version": "0.1.1",
-  "description": "Empower your JSS styles by using the best bits of ES6 and CSS",
+  "name": "jss-from-postcss",
+  "version": "0.0.1",
+  "description": "Empower your JSS styles by using PostCSS",
   "main": "lib/index.js",
   "scripts": {
     "clean": "rimraf lib dist",
@@ -12,19 +12,20 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/axept/jss-from-css.git"
+    "url": "git+https://github.com/axept/jss-from-css.git#postcss"
   },
   "keywords": [
     "react",
     "css",
-    "css-in-js"
+    "css-in-js",
+    "postcss"
   ],
-  "author": "Originally by Glen Maddern",
+  "author": "Axept <office@axept.co>",
   "license": "MIT",
   "bugs": {
     "url": "https://github.com/axept/jss-from-css/issues"
   },
-  "homepage": "https://github.com/axept/jss-from-css",
+  "homepage": "https://github.com/axept/jss-from-css/tree/postcss",
   "dependencies": {
     "css": "^2.2.1",
     "postcss": "^5.2.14",
