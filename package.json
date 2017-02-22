@@ -1,6 +1,6 @@
 {
   "name": "jss-from-css",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "Empower your JSS styles by using the best bits of ES6 and CSS",
   "main": "lib/index.js",
   "scripts": {
