@@ -71,10 +71,19 @@ document.body.innerHTML = `
 
 ## Adapters
 
-At the moment [stylis.js](https://github.com/thysultan/stylis.js) and [CSSJSON](https://github.com/aramk/CSSJSON) are using to prepare and parse your CSS code. But you can create any custom CSS adapter to override `prepare` and/or `parse` functions.
+At the moment [stylis.js](https://github.com/thysultan/stylis.js) and [reworkcss/css](https://github.com/reworkcss/css) are using to prepare and parse your CSS code. The both are small "one module" packages which are great for Client-side Applications.
 
-+ `prepare(CSS: string): string` is using for preparing pure CSS from you PostCSS, LESS, SCSS or Stylus code.
-+ `parse(CSS: string): object` is using for converting pure CSS to JSS.
+According to [some benchmarks][https://github.com/postcss/benchmark], PostCSS could be faster. If you'd like to get PostCSS as default preprocessor and parser please use:
+
++ [jss-from-postcss](https://www.npmjs.com/package/jss-from-postcss)
++ [babel-plugin-jss-from-postcss](https://www.npmjs.com/package/babel-plugin-jss-from-postcss)
+
+### Customize
+
+You control everything. You can create any custom CSS adapter to override `prepare` and/or `parse` functions:
+
++ `prepare(CSS: string): string` is using for preprocessing your PostCSS, LESS, SCSS or Stylus code to plain CSS.
++ `parse(CSS: string): object` is using for converting plain CSSto JSS.
 
 Feel free to play with it:
 
@@ -131,8 +140,4 @@ const styles2 = fromStylus`
     font-family Helvetica, Arial, sans-serif;
 `
 ```
-
-## Additional
-
-Originally based on [styled-component 2.0.0-4](https://github.com/styled-components/styled-components/commit/22531e2431229d1f678b7ff1d575745800b888ed)
 
