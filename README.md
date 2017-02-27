@@ -1,4 +1,7 @@
-# jss-from-css
+Hi friend! Please use [prejss](https://github.com/axept/prejss) instead of this package. Cheers.
+====
+
+**jss-from-css**
 
 > No black boxes anymore.
 
